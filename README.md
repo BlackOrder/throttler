@@ -233,14 +233,25 @@ The package includes comprehensive tests covering:
 - Basic functionality and edge cases
 - Timing behavior and proper throttling
 - Context cancellation
-- Concurrent usage
+- Concurrent usage and race conditions
 - Performance benchmarks
 
 Run tests:
 ```bash
-go test -v
-go test -bench=.
+go test -v                    # Basic tests
+go test -race -v             # Race condition tests
+go test -bench=.             # Performance benchmarks
 ```
+
+### Race Condition Testing
+
+The package has been extensively tested for race conditions with:
+- 1000+ concurrent goroutines
+- 500,000+ triggers under extreme load
+- Context cancellation under high concurrency
+- Timer edge cases and rapid lifecycle testing
+
+See [RACE_TESTING.md](RACE_TESTING.md) for detailed race testing results.
 
 ## Thread Safety
 
